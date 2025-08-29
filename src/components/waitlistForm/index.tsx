@@ -72,9 +72,7 @@ const WaitlistForm = () => {
     setError(null);
     setSuccess(null);
     console.log(formData);
-    const { error } = await supabase
-      .from("waitlist")
-      .insert([formData]);
+    const { error } = await supabase.from("waitlist").insert([formData]);
 
     setLoading(false);
 
@@ -219,7 +217,10 @@ const WaitlistForm = () => {
                   className="basic-multi-select font-sans !bg-[#171717] !border-[#434343]"
                   classNamePrefix="select"
                   isOptionDisabled={() => field.value?.length >= 4}
-                  {...field}
+                  value={options.filter((o) => field.value.includes(o.value))}
+                  onChange={(selected) =>
+                    field.onChange(selected.map((s) => s.value))
+                  }
                 />
               )}
             />
