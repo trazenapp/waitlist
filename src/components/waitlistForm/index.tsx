@@ -97,7 +97,7 @@ const WaitlistForm = () => {
     setTimeout(() => {
       setError(null);
       setSuccess(null);
-    }, 3000);
+    }, 10000);
   };
 
   return (
@@ -106,11 +106,11 @@ const WaitlistForm = () => {
         {error && (
           <Alert
             variant="destructive"
-            className="bg-transparent border-red-400/40 mb-4"
+            className="w-11/12 md:w-9/12 lg:w-5/12 fixed top-6 left-1/2 -translate-x-1/2 bg-[#161616] border-red-400/40 mb-4"
           >
             <AlertCircleIcon />
             <AlertTitle>Error</AlertTitle>
-            <AlertDescription>
+            <AlertDescription className="bg-[#161616]">
               <p>{error}</p>
             </AlertDescription>
           </Alert>
@@ -118,11 +118,11 @@ const WaitlistForm = () => {
         {success && (
           <Alert
             variant="default"
-            className="bg-transparent border-green-400/40 mb-4 text-green-400"
+            className="w-11/12 md:w-9/12 lg:w-5/12 fixed top-6 left-1/2 -translate-x-1/2 bg-[#161616] border-green-400/40 mb-4 text-green-400"
           >
             <AlertCircleIcon />
             <AlertTitle>Success</AlertTitle>
-            <AlertDescription>
+            <AlertDescription className="bg-[#161616]">
               <p className="text-green-400">{success}</p>
             </AlertDescription>
           </Alert>
